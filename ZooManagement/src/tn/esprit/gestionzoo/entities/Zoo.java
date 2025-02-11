@@ -1,6 +1,10 @@
+package tn.esprit.gestionzoo.entities;
+import tn.esprit.gestionzoo.entities.Animal;
+
+
 public class Zoo {
     Animal[] animals;
-    String name;
+    private String name;
     String city;
     final int  nbrCages;
 
@@ -16,33 +20,25 @@ public class Zoo {
         System.out.println(name + " " + city + " " + nbrCages);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if(name=="")
+            System.out.println("📍mata3tinich vide brass omok");
+        else
+            this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Zoo Name: " + name + "\n" +
+        return "tn.esprit.gestionzoo.entities.Zoo Name: " + name + "\n" +
                 "City: " + city + "\n" +
                 "Number of Cages: " + nbrCages + "\n" +
                 "Number of Animals: " + nbrCages;
     }
-    public boolean addAnimal(Animal animal) {
-        int animalCount = 0;
-
-        // Compter le nombre d'animaux déjà présents dans le tableau
-        for (Animal a : animals) {
-            if (a != null) {
-                animalCount++;
-            }
-        }
-
-        for (int i = 0; i < animalCount; i++) {
-            if (animals[i].name.equalsIgnoreCase(animal.name)) {
-                System.out.println("⚠️ " + animal.name + " est déjà dans le zoo.");
-                return false;
-            }
-        }
-        animals[animalCount++] = animal;
-        System.out.println("✅ " + animal.name + " ajouté avec succès.");
-        return true;
-    }
+    
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null && animals[i].name.equalsIgnoreCase(animal.name)) {
@@ -64,6 +60,23 @@ public class Zoo {
 
         return animalCount >= nbrCages; // ✅ Retourne directement le booléen sans if inutile
     }
+    public boolean addAnimal(Animal animal) {
+        
+
+        for (int i = 0; i < animalCount; i++) {
+            if (animals[i].name.equalsIgnoreCase(animal.name)) {
+                System.out.println("⚠️ " + animal.name + " est déjà dans le zoo.");
+                return false;
+            }
+        }
+        if(isZooFull){
+            return false;
+        }
+        animals[animalCount++] = animal;
+        System.out.println("✅ " + animal.name + " ajouté avec succès.");
+        return true;
+    }
+    
     public static Zoo comparerZoo(Zoo z1, Zoo z2) {
         // Compter le nombre d'animaux dans chaque zoo
         int animalCount1 = 0;
