@@ -1,5 +1,4 @@
 package tn.esprit.gestionzoo.entities;
-import tn.esprit.gestionzoo.entities.Animal;
 
 
 public class Zoo {
@@ -61,15 +60,21 @@ public class Zoo {
         return animalCount >= nbrCages; // ✅ Retourne directement le booléen sans if inutile
     }
     public boolean addAnimal(Animal animal) {
-        
 
+        int animalCount = 0;
+
+        // Compter le nombre d'animaux présents
+        for (Animal a : animals) {
+            if (a != null) {
+                animalCount++;
+            }}
         for (int i = 0; i < animalCount; i++) {
             if (animals[i].name.equalsIgnoreCase(animal.name)) {
                 System.out.println("⚠️ " + animal.name + " est déjà dans le zoo.");
                 return false;
             }
         }
-        if(isZooFull){
+        if(isZooFull()){
             return false;
         }
         animals[animalCount++] = animal;

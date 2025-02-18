@@ -1,6 +1,7 @@
 package tn.esprit.gestionzoo.main;
-import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.*;
 import tn.esprit.gestionzoo.entities.Zoo;
+
 
 public class ZooManagement {
 
@@ -12,19 +13,27 @@ public class ZooManagement {
         Animal tigre = new Animal("felin", "tigre", 5, true);
         Animal elephant = new Animal("Mammifère", "Éléphant", 10, false);
         Animal lionDuplicate = new Animal("Félin", "Lion", 6, true);
+        Animal animal = new Animal("Canidae", "Wolf", 5, true);
+        System.out.println(animal);
 
-        Zoo zoo = new Zoo("zoofalouja","newyork");
-        zoo.addAnimal(lion);       // ✅ Doit réussir
-        zoo.addAnimal(tigre);      // ✅ Doit réussir
-        zoo.addAnimal(elephant);   // ✅ Doit réussir
-        zoo.addAnimal(lionDuplicate);
-        int indexLion = zoo.searchAnimal(lion);
-        int indexPanda = zoo.searchAnimal(new Animal("Mammifère", "Panda", 3, true));
+        // Creating an Aquatic instance
+        Aquatic aquatic = new Aquatic("Pisces", "Shark", 10, false, "Ocean");
+        System.out.println(aquatic);
+        aquatic.swim();
 
-        System.out.println("📍 Indice de 'Lion' : " + indexLion); // ✅ Doit retourner un indice valide (0, 1 ou 2)
-        System.out.println("📍 Indice de 'Panda' : " + indexPanda);
+        // Creating a Terrestrial instance
+        Terrestrial terrestrial = new Terrestrial("Felidae", "Tiger", 7, true, 4);
+        System.out.println(terrestrial);
 
-        zoo.displayZoo();
+        // Creating a Dolphin instance
+        Dolphin dolphin = new Dolphin("Delphinidae", "Bottlenose Dolphin", 8, true, "Sea", 25.5f);
+        System.out.println(dolphin);
+        dolphin.swim();
+
+        // Creating a Penguin instance
+        Penguin penguin = new Penguin("Spheniscidae", "Emperor Penguin", 4, false, "Antarctica", 50.0f);
+        System.out.println(penguin);
+        penguin.swim();
 
     }
 
