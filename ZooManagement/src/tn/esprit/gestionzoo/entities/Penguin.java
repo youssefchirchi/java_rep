@@ -15,4 +15,7 @@ public class Penguin extends Aquatic{
                 "swimmingDepth=" + swimmingDepth +
                 '}';
     }
+    public void swim(){
+        System.out.println("pinguin swimming");
+    }
 }

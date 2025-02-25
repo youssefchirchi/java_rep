@@ -16,10 +16,7 @@ public class ZooManagement {
         Animal animal = new Animal("Canidae", "Wolf", 5, true);
         System.out.println(animal);
 
-        // Creating an Aquatic instance
-        Aquatic aquatic = new Aquatic("Pisces", "Shark", 10, false, "Ocean");
-        System.out.println(aquatic);
-        aquatic.swim();
+
 
         // Creating a Terrestrial instance
         Terrestrial terrestrial = new Terrestrial("Felidae", "Tiger", 7, true, 4);
@@ -34,6 +31,8 @@ public class ZooManagement {
         Penguin penguin = new Penguin("Spheniscidae", "Emperor Penguin", 4, false, "Antarctica", 50.0f);
         System.out.println(penguin);
         penguin.swim();
+
+
 
     }
 
